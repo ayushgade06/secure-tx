@@ -15,6 +15,10 @@ async function bootstrap() {
   await app.register(cors, {
     origin: "http://localhost:3000"
   })
+
+  app.get("/", async () => {
+    return { status: "ok" }
+  })
   app.post("/tx/encrypt", async (request, reply) => {
     const body = request.body as {
       partyId: string
