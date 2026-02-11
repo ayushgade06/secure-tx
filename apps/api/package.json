@@ -8,7 +8,9 @@
     "build": "tsc"
   },
   "dependencies": {
+    "@fastify/cors": "^8.5.0",
     "@secure-tx/crypto": "workspace:*",
+    "dotenv": "^17.2.4",
     "fastify": "^4.26.2"
   },
   "devDependencies": {
