@@ -13,12 +13,13 @@ const store = new Map<string, TxSecureRecord>()
 
 async function bootstrap() {
   await app.register(cors, {
-    origin: "http://localhost:3000"
+    origin: true
   })
 
   app.get("/", async () => {
     return { status: "ok" }
   })
+
   app.post("/tx/encrypt", async (request, reply) => {
     const body = request.body as {
       partyId: string
@@ -32,7 +33,6 @@ async function bootstrap() {
     ) {
       return reply.status(400).send({ error: "Invalid input" })
     }
-
 
     const record = encryptEnvelope(body.partyId, body.payload)
     store.set(record.id, record)
@@ -68,7 +68,7 @@ async function bootstrap() {
   })
 
   await app.listen({ port: 3001, host: "0.0.0.0" })
-  console.log("API running on http://localhost:3001")
+  console.log("API running")
 }
 
 bootstrap().catch((err) => {
