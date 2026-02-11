@@ -1,0 +1,13 @@
+{
+  "name": "secure-tx",
+  "private": true,
+  "packageManager": "pnpm@10.18.2",
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build"
+  },
+  "devDependencies": {
+    "@types/node": "^25.2.3",
+    "turbo": "^2.8.6"
+  }
+}
